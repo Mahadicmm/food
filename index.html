@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+          tailwind.config = {
+            theme: {
+              extend: {
+                colors: {
+                  clifford: '#da373d',
+                }
+              }
+            }
+          }
+      </script>
+
+      <style>
+        .black{
+          background-color: black;
+          color: white;
+        }
+        .white{
+          background-color: white;
+          color: black;
+        }
+        #foodDetails{
+          position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            box-shadow: 0 5px 30px rgba(0, 0, 0,.30);
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        #foodDetails.active{
+          top: 45%;
+            visibility: visible;
+            opacity: 1;
+            transition: 0.5s;
+        }
+        #foodDisplay.active{
+          filter: blur(3px);
+        }
+
+        #foodDisplay.active button{
+          display: none;
+        }
+      </style>
+      <title>food api</title>
+  </head>
+  <body id="body">
+    <div class="flex justify-end">
+      <button id="btn" class="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 px-3 py-2 rounded-full mt-2 mr-4 text-white">Change mood</button>
+    </div>
+      <h1 class="text-5xl bg-black p-4 w-6/12 text-center mx-auto mt-2 rounded-full capitalize text-white font-semibold">Search your favorite food</h1>
+
+      
+
+      <div class="flex items-center justify-center gap-2 mt-4">
+          <input id="searchInput" class="border-2 border-emerald-400 rounded-2xl px-2 py-2 w-4/12 outline-offset-2 outline-2 outline-emerald-300 text-lg" type="search" placeholder="search your food">
+          <button onclick="buttonClick()" class="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 px-8 py-1.5 text-white text-2xl rounded">search</button>
+      </div>
+
+
+      <div id="foodDisplay" class="grid grid-cols-3 gap-4 mt-5"> </div>
+
+      <div id="foodDetails" class="flex  mt-6">
+
+      </div>
+
+
+
+
+
+      <script src="./food.js"></script>
+  </body>
+</html>
